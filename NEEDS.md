@@ -32,9 +32,14 @@ paragraph, never generated).
 out-of-scope questions ("define baptism" should GAP, not guess medical).
 
 ## P4 — Release gate + deployment
-Hash discipline, Pages deployment to a public repo (name TBD: `tru-lifeline`), byte-verify,
-real-machine voice test by joe.
-**Accept.** Live URL byte-identical; joe passes the gate.
+DEPLOYED (2026-10-02): public repo `splashdown1/tru-lifeline` (engine as index.html + full
+build pipeline: engine/, ingest/, data/, references/, source/). Pages live and byte-verified:
+https://splashdown1.github.io/tru-lifeline/ — sha `e8675bd59f4209b1…` (1,114,719 bytes),
+deterministic builds via `BUILD_STAMP` env (rebuild from same sources = same bytes).
+Live smoke: boot ready panel, DANGER/DEFINE/READER fire, 0 console errors.
+Build of record: `BUILD_STAMP="2026-10-02 13:22 UTC" python3 engine/build.py`.
+REMAINING: real-machine voice test by joe (TEST VOICE + ♀/♂ toggles + read-along on the live URL).
+**Accept.** Live URL byte-identical: DONE. joe passes the gate: PENDING.
 
 ## P5 — Later (parked)
 - Corpus expansion: FM 4-25.11 (2002), USDA plant data, Boy Scout 1911 knots/shelter.

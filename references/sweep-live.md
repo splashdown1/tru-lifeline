@@ -1,13 +1,13 @@
-# Live lane sweep — 2026-10-02 13:15 UTC
+# Live lane sweep — 2026-10-02 17:11 UTC
 
 | ok | verdict | query | reply (first 110 chars) |
 |---|---|---|---|
 | PASS | DEFINE | what is shock | DEFINED • shock “Shock is a condition in which there is inadequate blood flow to the vita!” |
 | PASS | DEFINE | what is a tourniquet | DEFINED • a tourniquet “A tourniquet is a constricting band placed around an arm or leg to stop severe bleedin |
 | PASS | DEFINE | what is the pulse | DEFINED • the pulse “This cycle o^ expan- siot} and contraction of the arteries is called the pulse.” |
-| PASS | DANGER | snake bite | DANGER • |
-| PASS | DANGER | snakebite | DANGER • |
-| PASS | DANGER | snakebite treatment | DANGER • |
+| PASS | DANGER | snake bite | TREATMENT — verbatim • Snake and Spider Bites and Scorpion Stings “Bites from snakes, black widow spiders, and |
+| PASS | DANGER | snakebite | DANGER • POISONOUS SNAKES “There are no infallible rules for expedient identification of poisonous snakes in t |
+| PASS | DANGER | snakebite treatment | DANGER • POISONOUS SNAKES “There are no infallible rules for expedient identification of poisonous snakes in t |
 | PASS | DANGER | poisonous snakes | DANGER • POISONOUS SNAKES “There are no infallible rules for expedient identification of poisonous snakes in t |
 | PASS | DANGER | puff adder | SPECIES • Puff adder (Bitis arietans) Puff adder (Bitis arietans) — Africa and Asia “• • • • • • • • • • • • • |
 | PASS | PROCEDURE | how to open an airway | PROCEDURE • Open Airway And Maintain “You can open an airway and maintain it by using the following steps.” “S |

@@ -46,6 +46,24 @@ function stem(w){
   if (w.length > 3 && w.endsWith("e")) return w.slice(0, -1);
   return w;
 }
+function lev1(a, b){
+  if (a === b) return true;
+  const la = a.length, lb = b.length;
+  if (Math.abs(la - lb) > 1) return false;
+  if (la === lb) {
+    let diff = 0;
+    for (let i = 0; i < la; i++) if (a[i] !== b[i] && ++diff > 1) return false;
+    return diff === 1;
+  }
+  const [s, l] = la < lb ? [a, b] : [b, a];
+  let i = 0, j = 0, skipped = false;
+  while (i < s.length && j < l.length) {
+    if (s[i] === l[j]) { i++; j++; }
+    else if (skipped) return false;
+    else { skipped = true; j++; }
+  }
+  return true;
+}
 function contentWords(s){
   const out = [];
   for (const t of norm(s).split(" ")) if (t && !STOP.has(t)) out.push(stem(t));
@@ -217,7 +235,28 @@ function defineQuery(raw){
     }
     if (fired) hits.push(e);
   }
-  if (!hits.length) return null;
+  if (!hits.length) {
+    // single-typo tolerance: one-edit match against a clean term or a content word
+    // (data-derived, length >= 5; "tournaquet" -> tourniquet)
+    if (subjCW.length === 1 && subjCW[0].length >= 5) {
+      const w = subjCW[0];
+      for (const e of getTerms()) {
+        const cands = [];
+        if (e.term) { const nT = norm(e.term); cands.push(nT); for (const t of nT.split(" ")) if (t.length >= 5) cands.push(t); }
+        for (const c of cands) {
+          if (c.length >= 5 && lev1(c, w)) {
+            return {
+              reply: '<div class="ll-h">DEFINED \u2022 ' + esc(e.term) + '</div>' +
+                '<div class="ll-quote">\u201c' + esc(e.sentence) + '\u201d' + flagNote(e.qa_flags) + '</div>' +
+                '<div style="color:#6b7f8a;font-size:10.5px;margin-top:4px">matched "' + esc(w) + '" \u2192 "' + esc(e.term) + '" (one-letter difference)</div>',
+              verdict: "DEFINE", source: refLine(e) + " \u2022 verbatim", chip: null, html: true,
+            };
+          }
+        }
+      }
+    }
+    return null;
+  }
   hits.sort((a, b) => norm(a.sentence).split(" ").length - norm(b.sentence).split(" ").length);
   const e = hits[0];
   const mIdx = manualOf(e);
@@ -225,7 +264,7 @@ function defineQuery(raw){
   return {
     reply: '<div class="ll-h">DEFINED \u2022 ' + esc(subject) + "</div>" +
       '<div class="ll-quote">\u201c' + esc(e.sentence) + "\u201d" + flagNote(e.qa_flags) + "</div>",
-    verdict: "DEFINE", source: refLine(e) + " \u2022 verbatim", chip,
+    verdict: "DEFINE", source: refLine(e) + " \u2022 verbatim", chip, html: true,
   };
 }
 
@@ -291,7 +330,7 @@ function dangerQuery(raw){
   }
   // scored matching (shared: full coverage wins; partial must be strictly best)
   const pick = pickScored(idx, qCW, d => d.cw);
-  if (pick) return dangerCard(pick.e, pick.others);
+  if (pick) return dangerCard(pick.e.e || pick.e, (pick.others || []).map(o => o.e || o));
   return null;
 }
 function dangerCard(e, others){
@@ -310,7 +349,7 @@ function dangerCard(e, others){
   }
   return {
     reply: '<div class="ll-h">' + (e.kind === "species" ? "SPECIES" : e.kind === "treatment" ? "TREATMENT \u2014 verbatim" : "DANGER") + " \u2022 " + esc(e.name) + "</div>" + body,
-    verdict: "DANGER", source: refLine(e) + " \u2022 verbatim", chip,
+    verdict: "DANGER", source: refLine(e) + " \u2022 verbatim", chip, html: true,
   };
 }
 function siblingChip(e){
@@ -369,7 +408,7 @@ function procCard(p){
   }
   return {
     reply: '<div class="ll-h">PROCEDURE \u2022 ' + esc(p.title) + "</div>" + body,
-    verdict: "PROCEDURE", source: refLine(p) + " \u2022 verbatim (" + p.method + ")",
+    verdict: "PROCEDURE", source: refLine(p) + " \u2022 verbatim (" + p.method + ")", html: true,
     chip: siblingChip(p),
   };
 }
@@ -401,7 +440,7 @@ function topicCard(t, others){
   }
   return {
     reply: '<div class="ll-h">TOPIC \u2022 ' + esc(t.title) + "</div>" + body,
-    verdict: "TOPIC", source: refLine(t) + " \u2022 verbatim",
+    verdict: "TOPIC", source: refLine(t) + " \u2022 verbatim", html: true,
     chip,
   };
 }
@@ -482,7 +521,7 @@ function gapQuery(raw, forcedPointer){
     reply += '<div class="ll-gap">\u2022 no source entry \u2014 nearest covered: <span class="tru-ref" data-q="' +
       esc(pointer.query) + '" style="cursor:pointer">' + esc(pointer.title) + "</span></div>";
   }
-  return { reply, verdict: "GAP", source: "no retrieval \u2022 honest gap", chip: pointer ? { label: pointer.title, query: pointer.query } : null };
+  return { reply, verdict: "GAP", source: "no retrieval \u2022 honest gap", chip: pointer ? { label: pointer.title, query: pointer.query } : null, html: true };
 }
 
 // ═══════════════════════════════ READER ═══════════════════════════════
@@ -858,7 +897,8 @@ if ("speechSynthesis" in window) {
 }
 readerRefreshVoices();
 input.addEventListener("input", () => { sendBtn.disabled = busy || !input.value.trim(); });
-input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); send(); } });
+input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); send(); } });input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); send(); } });
+sendBtn.addEventListener("click", () => send());
 function setTruMode(){ /* offline is the only mode — zero network is doctrine */ }
 
 // ── portal panel (built once) ──
