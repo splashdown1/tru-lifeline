@@ -34,12 +34,16 @@ out-of-scope questions ("define baptism" should GAP, not guess medical).
 ## P4 — Release gate + deployment
 DEPLOYED (2026-10-02): public repo `splashdown1/tru-lifeline` (engine as index.html + full
 build pipeline: engine/, ingest/, data/, references/, source/). Pages live and byte-verified:
-https://splashdown1.github.io/tru-lifeline/ — sha `e8675bd59f4209b1…` (1,114,719 bytes),
-deterministic builds via `BUILD_STAMP` env (rebuild from same sources = same bytes).
+https://splashdown1.github.io/tru-lifeline/ — release of record v1.2, sha `286003bd0a557bd6…`
+(1,116,528 bytes), deterministic builds via `BUILD_STAMP` env (rebuild from same sources = same bytes).
 Live smoke: boot ready panel, DANGER/DEFINE/READER fire, 0 console errors.
-Build of record: `BUILD_STAMP="2026-10-02 13:22 UTC" python3 engine/build.py`.
-REMAINING: real-machine voice test by joe (TEST VOICE + ♀/♂ toggles + read-along on the live URL).
-**Accept.** Live URL byte-identical: DONE. joe passes the gate: PENDING.
+Build of record: `BUILD_STAMP="2026-10-02 17:12 UTC" python3 engine/build.py`.
+Real-machine voice gate (joe, 2026-10-02): PASSED — TTS reads sections, 30+ local voices detected,
+voice dropdown + TEST VOICE work; honest no-female-voice fallback status line behaved as designed.
+Post-gate fixes folded into v1.2: send-button wiring (button was dead — only Enter worked),
+GAP-card HTML render leak, "snakebit" de-compound provenance (CH undefined → CH 11 · POISONOUS
+SNAKES), DEFINE single-typo tolerance ("tournaquet" → tourniquet, honest match-note shown).
+**Accept.** Live URL byte-identical: DONE. joe passes the gate: DONE.
 
 ## P5 — Later (parked)
 - Corpus expansion: FM 4-25.11 (2002), USDA plant data, Boy Scout 1911 knots/shelter.
