@@ -1,11 +1,12 @@
 tru17_head.html sha256: aeebb091a2df46e1... (33353651 bytes)
 head: title rebranded to TRU LIFELINE
 body shell: rebranded; red/rainbow toggles removed; reader bar adapted
-pack-topics: 563 entries, 831905 bytes
-pack-procedures: 125 entries, 199209 bytes
-pack-terms: 121 entries, 44595 bytes
-pack-dangers: 63 entries, 21294 bytes
-packs total: 1097003 bytes
+pack-topics: 563 entries, 831894 bytes
+pack-procedures: 125 entries, 199204 bytes
+pack-terms: 122 entries, 45007 bytes
+pack-dangers: 80 entries, 38214 bytes
+pack-plants: 111 entries, 110784 bytes
+packs total: 1225103 bytes
 written: /home/workspace/TRU-LIFELINE/tru-lifeline.html
-sha256: 286003bd0a557bd6f26d58f285f0804009f4cd38b5f29bb1ba33e74125320bf2
-size: 1116528 bytes (1.06 MB) — target < 2MB
+sha256: ff5e8e9d906893a052e65649b60b19ab9bab55a93835c96a62e6dcf293571a25
+size: 1240177 bytes (1.18 MB) — target < 2MB

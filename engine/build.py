@@ -61,7 +61,7 @@ def build():
 
     # ── data blocks ──
     blocks, total = [], 0
-    for name in ("topics", "procedures", "terms", "dangers"):
+    for name in ("topics", "procedures", "terms", "dangers", "plants"):
         raw = rd(os.path.join(ROOT, "data", "packs", f"{name}.json"))
         d = json.loads(raw)                                # validate
         total += len(raw)

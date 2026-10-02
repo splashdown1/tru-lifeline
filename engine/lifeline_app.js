@@ -17,10 +17,29 @@ function getPack(id) {
   try { return JSON.parse(el.textContent); } catch (e) { console.error("pack parse", id, e); return null; }
 }
 let _TOPICS = null, _PROCS = null, _TERMS = null, _DANGERS = null;
+let _PLANTS = null;
 function getTopics()   { if (!_TOPICS)  _TOPICS  = (getPack("pack-topics")     || { entries: [] }).entries; return _TOPICS; }
 function getProcs()    { if (!_PROCS)   _PROCS   = (getPack("pack-procedures") || { entries: [] }).entries; return _PROCS; }
 function getTerms()    { if (!_TERMS)   _TERMS   = (getPack("pack-terms")      || { entries: [] }).entries; return _TERMS; }
 function getDangers()  { if (!_DANGERS) _DANGERS = (getPack("pack-dangers")    || { entries: [] }).entries; return _DANGERS; }
+function getPlants()    {
+  if (!_PLANTS) {
+    _PLANTS = (getPack("pack-plants") || { entries: [] }).entries;
+    for (const p of _PLANTS) {
+      const keys = new Set([norm(p.name)]);
+      if (p.latin) keys.add(norm(p.latin));
+      for (const part of String(p.name).split(/[,/]/)) {
+        const k = norm(part);
+        if (k) keys.add(k);
+      }
+      const bare = norm(String(p.name).replace(/\([^)]*\)/g, ""));
+      if (bare) keys.add(bare);
+      p._keys = [...keys];
+      p._cw = contentWords(p.name + " " + (p.latin || ""));
+    }
+  }
+  return _PLANTS;
+}
 
 const MANUALS = ["FM 21-11", "FM 21-76"];
 function manualOf(e)  { return e.manual && e.manual.indexOf("FM 21-11") === 0 ? 0 : 1; }
@@ -40,10 +59,8 @@ const STOP = new Set(("a an the is are was were be been being of in on at to for
   "want tell show give some any very more most best good using use used way ways").split(" "));
 function stem(w){
   if (w.length > 4 && w.endsWith("ies")) return w.slice(0, -3) + "y";
-  if (w.length > 3 && w.endsWith("sses")) return w.slice(0, -2);
-  if (w.length > 3 && w.endsWith("es") && !/[sxz]es$/.test(w)) return w.slice(0, -1);
+  if (w.length > 4 && /(sh|ch|[sxz])es$/.test(w)) return w.slice(0, -2);
   if (w.length > 3 && w.endsWith("s") && !w.endsWith("ss")) return w.slice(0, -1);
-  if (w.length > 3 && w.endsWith("e")) return w.slice(0, -1);
   return w;
 }
 function lev1(a, b){
@@ -69,6 +86,17 @@ function contentWords(s){
   for (const t of norm(s).split(" ")) if (t && !STOP.has(t)) out.push(stem(t));
   return out;
 }
+
+// single-word DANGER/PLANT probabilistic hits yield to TOPIC titles
+// ("water" belongs to Water Procurement, not Water Hemlock)
+let _TOPIC_CW = null;
+function topicOwns(w){
+  if (!_TOPIC_CW) {
+    _TOPIC_CW = new Set();
+    for (const t of getTopics()) for (const x of contentWords(t.title)) _TOPIC_CW.add(x);
+  }
+  return _TOPIC_CW.has(w);
+}
 function hasAll(hayCW, needles){ return needles.every(n => hayCW.indexOf(n) >= 0); }
 
 // ── verdict palette ──
@@ -86,6 +114,10 @@ function flagNote(flags){
 
 // ── source reference line ──
 function refLine(e){
+  if (e.page && String(e.manual || "").indexOf("APPENDIX") >= 0) {
+    return manualName(1) + " \u00b7 " + String(e.manual).replace(/^FM 21-76 \(1992\) \u00b7 /, "") + " \u00b7 " + e.page +
+      (e.name ? " \u00b7 " + e.name : "");
+  }
   const m = manualName(manualOf(e));
   if (manualOf(e) === 0) {
     let p = e.para || "";
@@ -335,10 +367,12 @@ function dangerQuery(raw){
 }
 function dangerCard(e, others){
   const t = getTopics().find(x => x.id === e.topic_id);
+  const src = t ? t : e;
+  const kindLabel = e.kind === "poisonous-plant" ? "POISONOUS PLANT" : e.kind === "species" ? "SPECIES" : e.kind === "treatment" ? "TREATMENT \u2014 verbatim" : "DANGER";
   const body = e.kind === "species"
     ? '<div class="ll-quote"><b>' + esc(e.name) + "</b> \u2014 " + esc(e.region || "") + "</div>" +
-      (t ? '<div class="ll-quote">\u201c' + esc(t.text.slice(0, 1200)) + (t.text.length > 1200 ? "\u2026" : "") + '\u201d' + flagNote(t.qa_flags) + "</div>" : "")
-    : (t ? '<div class="ll-quote">\u201c' + esc(t.text) + "\u201d" + flagNote(t.qa_flags) + "</div>" : "");
+      (src ? '<div class="ll-quote">\u201c' + esc(src.text.slice(0, 1200)) + (src.text.length > 1200 ? "\u2026" : "") + '\u201d' + flagNote(src.qa_flags) + "</div>" : "")
+    : (src ? '<div class="ll-quote">\u201c' + esc(src.text) + "\u201d" + flagNote(src.qa_flags) + "</div>" : "");
   let chip = siblingChip(e);
   if (e.kind === "species" && /snake|spider|scorpion/i.test(e.name) && !chip) {
     chip = { label: "Snake and Spider Bites and Scorpion Stings", query: "snake bite" };
@@ -348,8 +382,73 @@ function dangerCard(e, others){
     chip = { label: String(o.name || o.title || ""), query: norm(String(o.name || o.title || "")) };
   }
   return {
-    reply: '<div class="ll-h">' + (e.kind === "species" ? "SPECIES" : e.kind === "treatment" ? "TREATMENT \u2014 verbatim" : "DANGER") + " \u2022 " + esc(e.name) + "</div>" + body,
+    reply: '<div class="ll-h">' + kindLabel + " \u2022 " + esc(e.name) + "</div>" + body,
     verdict: "DANGER", source: refLine(e) + " \u2022 verbatim", chip, html: true,
+  };
+}
+function plantQuery(raw){
+  const low = norm(raw);
+  if (!low || low.length < 3) return null;
+  const plants = getPlants();
+  if (!plants.length) return null;
+  // strip a leading "the " and trailing qualifier words so "the abal plant" hits
+  const q = low.replace(/^the\s+/, "").replace(/\s+(plant|plants|herb)$/, "");
+  const qCW = contentWords(q);
+  // 1. exact key
+  let hits = plants.filter(p => p._keys.indexOf(q) >= 0);
+  // 2. containment, word-boundary aligned: query word inside a key ("hemlock"),
+  //    or a multi-word key phrase inside the query ("castor bean" in "castor bean seeds")
+  if (!hits.length) {
+    let inner = plants.filter(p => p._keys.some(k => {
+      if (k.indexOf(" ") >= 0 && q.indexOf(k) >= 0) return true;
+      if (k.length >= 3 && new RegExp("\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b").test(q)) return true;
+      return false;
+    }));
+    if (inner.length && qCW.length === 1 && topicOwns(qCW[0])) inner = [];
+    hits = inner;
+  }
+  // 3. scored content-word match with strict-best rule (same doctrine as dangers)
+  if (!hits.length) {
+    const qCW = contentWords(q);
+    if (!qCW.length) return null;
+    const scored = [];
+    for (const p of plants) {
+      let ov = 0;
+      for (const w of qCW) if (p._cw.indexOf(w) >= 0) ov++;
+      if (ov >= 2 || (qCW.length === 1 && ov === 1 && !topicOwns(qCW[0]))) scored.push({ p, ov, len: p._cw.length });
+    }
+    if (scored.length) {
+      scored.sort((a, b) => b.ov - a.ov || a.len - b.len);
+      const best = scored.filter(x => x.ov === scored[0].ov && x.len === scored[0].len);
+      if (best.length === 1) hits = [best[0].p];
+    }
+  }
+  if (!hits.length) return null;
+  return plantCard(hits[0], hits.slice(1));
+}
+function plantCard(p, others){
+  const f = p.fields || {};
+  const parts = [];
+  parts.push('<div class="ll-h">' + "EDIBLE-MEDICINAL PLANT \u2022 " + esc(p.name) + "</div>");
+  if (p.latin) parts.push('<div class="ll-quote"><b>' + esc(p.latin) + "</b>" + (p.family ? " \u2014 " + esc(p.family) : "") + "</div>");
+  if (f["Description"]) parts.push('<div class="ll-quote">\u201c' + esc(f["Description"]) + '\u201d</div>');
+  if (f["Edible Parts"]) parts.push('<div class="ll-h">EDIBLE PARTS</div><div class="ll-quote">\u201c' + esc(f["Edible Parts"]) + '\u201d</div>');
+  if (f["CAUTION"]) parts.push('<div class="ll-h">CAUTION</div><div class="ll-quote">\u201c' + esc(f["CAUTION"]) + '\u201d</div>');
+  if (f["Habitat and Distribution"]) parts.push('<div class="ll-quote">\u201c' + esc(f["Habitat and Distribution"]) + '\u201d</div>');
+  if (f["Other Uses"]) parts.push('<div class="ll-h">OTHER USES</div><div class="ll-quote">\u201c' + esc(f["Other Uses"]) + '\u201d</div>');
+  parts.push(flagNote(p.qa_flags));
+  let chip = null;
+  if (others && others.length) {
+    const o = others[0];
+    chip = { label: String(o.name || ""), query: norm(String(o.name || "")) };
+  } else {
+    const pl = getPlants();
+    const i = pl.findIndex(x => x.id === p.id);
+    if (i >= 0 && i + 1 < pl.length) chip = { label: "next plant \u2014 " + pl[i + 1].name, query: norm(pl[i + 1].name) };
+  }
+  return {
+    reply: parts.filter(Boolean).join(""),
+    verdict: "PLANT", source: refLine(p) + " \u2022 verbatim", chip, html: true,
   };
 }
 function siblingChip(e){
@@ -453,11 +552,14 @@ function pickScored(list, qCW, getCW){
   for (const e of list) {
     const kCW = getCW(e);
     if (!kCW.length) continue;
-    const covT = qCW.filter(w => kCW.indexOf(w) >= 0).length / qCW.length;
+    const ovRaw = qCW.filter(w => kCW.indexOf(w) >= 0).length;
+    const covT = ovRaw / qCW.length;
     const covK = kCW.filter(w => qCW.indexOf(w) >= 0).length / kCW.length;
     const score = Math.max(covT, covK);
     if (score >= 0.999) full.push(e);
-    else if (score >= 0.5) part.push({ e, score });
+    // partial: a single-word overlap on a multi-word query is noise
+    // ("water procurement" must not become Water Hemlock) — need >= 2 words
+    else if (score >= 0.5 && ovRaw >= 2) part.push({ e, score });
   }
   if (full.length) return { e: full[0], others: full.slice(1, 3) };
   if (!part.length) return null;
@@ -781,6 +883,9 @@ function resolveAnswer(raw){
   // 4 DANGER
   const dgr = dangerQuery(q);
   if (dgr) return dgr;
+  // 4b PLANT (appendix B edible/medicinal index)
+  const pl = plantQuery(q);
+  if (pl) return pl;
   // 5 PROCEDURE
   const prc = procQuery(q);
   if (prc) return prc;

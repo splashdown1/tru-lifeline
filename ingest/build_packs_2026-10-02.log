@@ -1,9 +1,13 @@
 loaded: 21-11 120 records, 21-76 443 records
 TOPICS: 563 entries (0 empty-text records skipped)
 PROCEDURES: 125 entries (lettered: 33, numbered: 2, bullet-indexed: 90); verbatim steps only where boundaries are real; bullet-list entries carry bullet_count, never invented splits
-TERMS: 121 definitional sentences (121 with clean subject term)
+TERMS: 122 definitional sentences (122 with clean subject term)
 DANGERS: 63 entries (21-76 ch11 topics; snake species split per-species at Latin-name parens, verbatim; 21-11 treatment records 9-6/9-7/9-10 + ch11 toxic environment). Full text lives in TOPICS under topic_id; DANGERS holds the index.
+  appendix C poisonous-plant species added later via appendix_plant_dangers(): see main DANGERS log line
   written: data/packs/topics.json (563 entries)
   written: data/packs/procedures.json (125 entries)
-  written: data/packs/terms.json (121 entries)
-  written: data/packs/dangers.json (63 entries)
+  written: data/packs/terms.json (122 entries)
+PLANTS: 111 edible/medicinal entries from appendix B (fields quoted verbatim; Latin names kept)
+DANGERS FINAL: 80 entries (17 appendix-C poisonous-plant species, 26 snake species, 13 treatments, 24 topic refs)
+  written: data/packs/dangers.json (80 entries)
+  written: data/packs/plants.json (111 entries)

@@ -12,6 +12,10 @@ OUT = os.path.join(ROOT, "data", "fm2111_1976.json")
 
 CH_RE = re.compile(r"^CHAPTER\s+(\d{1,2})\s*$|^CHAPTER\s+(\d)\s+(\d)\s*$", re.M)
 SEC_RE = re.compile(r"^Section\s+([IVX]+)\.?\s*(.*)$", re.M)
+
+# Cosmetic chapter-title OCR fixes — two-source verified within the scan itself
+# (body heading vs front-matter TOC). Body-OCR only; raw text untouched.
+TITLE_FIX = {9: "FIRST AID FOR COMMON EMERGENCIES"}  # TOC line: "Common emergencies 9-1 — 9-14"
 PARA_RE = re.compile(r"^(\d{1,2})\s*[–—-]\s*(\d{1,3})\s*[.,][ \t]*(.*)$", re.M)
 
 # OCR-noise suspects: token patterns that must be flagged, never fixed silently here
@@ -89,7 +93,7 @@ def main():
             records.append({
                 "manual": "FM 21-11 (1976)",
                 "chapter": num,
-                "chapter_title": title,
+                "chapter_title": TITLE_FIX.get(num, title),
                 "section": sec_m.group(2).strip() if sec_m else "",
                 "para": f"{p.group(1)}-{p.group(2)}",
                 "lead": p.group(3).strip(),

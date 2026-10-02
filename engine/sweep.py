@@ -39,6 +39,11 @@ QUERIES = [
     ("procedure: edible plants of the seashore", None),
     ("tell me about water", None),
     ("what is a tourniquet ", None),  # trailing-space robustness
+    ("abal", "PLANT"),
+    ("castor bean seeds", "DANGER"),
+    ("water hemlock", "DANGER"),
+    ("poison ivy", "DANGER"),
+    ("water procurement", "TOPICFUZZY"),  # regression: must outrank Water plantain
 ]
 
 def strip_html(s):

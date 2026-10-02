@@ -5,7 +5,7 @@
   "data/fm2176_1992.json"
  ],
  "method": "definitional sentences via explicit patterns; sentence verbatim, subject-only term extraction",
- "count": 121,
+ "count": 122,
  "entries": [
   {
    "id": "782e050e96",
@@ -171,7 +171,7 @@
    "id": "c8d49df803",
    "manual": "FM 21-11 (1976)",
    "chapter": 9,
-   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "chapter_title": "FIRST AID FOR COMMON EMERGENCIES",
    "section": "",
    "para": "9-9",
    "qa_flags": [],
@@ -183,7 +183,7 @@
    "id": "c8d49df803",
    "manual": "FM 21-11 (1976)",
    "chapter": 9,
-   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "chapter_title": "FIRST AID FOR COMMON EMERGENCIES",
    "section": "",
    "para": "9-9",
    "qa_flags": [],
@@ -195,7 +195,7 @@
    "id": "c8d49df803",
    "manual": "FM 21-11 (1976)",
    "chapter": 9,
-   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "chapter_title": "FIRST AID FOR COMMON EMERGENCIES",
    "section": "",
    "para": "9-9",
    "qa_flags": [],
@@ -207,7 +207,7 @@
    "id": "c8d49df803",
    "manual": "FM 21-11 (1976)",
    "chapter": 9,
-   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "chapter_title": "FIRST AID FOR COMMON EMERGENCIES",
    "section": "",
    "para": "9-9",
    "qa_flags": [],
@@ -219,7 +219,7 @@
    "id": "d6d93e160f",
    "manual": "FM 21-11 (1976)",
    "chapter": 9,
-   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "chapter_title": "FIRST AID FOR COMMON EMERGENCIES",
    "section": "",
    "para": "9-13",
    "qa_flags": [],
@@ -791,6 +791,18 @@
    "term": "Shark Sharks",
    "pattern": "is-a",
    "sentence": "Shark Sharks are the most feared animal in the sea."
+  },
+  {
+   "id": "f120ef6a38",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Fish Dangerous to Handle, Touch, or Contact",
+   "para": "11-s",
+   "qa_flags": [],
+   "term": "surgeonfish because of the scalpellike sp",
+   "pattern": "is-called",
+   "sentence": "They are called surgeonfish because of the scalpellike spines located in the tail."
   },
   {
    "id": "742ee5e138",

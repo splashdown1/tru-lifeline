@@ -176,7 +176,7 @@ def build_terms(records):
                     m2 = THE_TERM.search(sentence)
                     if m2:
                         term = m2.group(1).strip().rstrip(" .,")
-                obj = re.search(r"\\b(?:is|are)\\s+(?:defined\\s+as|known\\s+as|called|referred\\s+to\\s+as)\\s+(?:the\\s+|a\\s+|an\\s+)?([A-Za-z][A-Za-z\\- ]{2,40})", sentence)
+                obj = re.search(r"\b(?:is|are)\s+(?:defined\s+as|known\s+as|called|referred\s+to\s+as)\s+(?:the\s+|a\s+|an\s+)?([A-Za-z][A-Za-z\- ]{2,40})", sentence)
                 if term is None and obj:
                     term = obj.group(1).strip()
                 if term is None and name in ("is-called", "is-known-as", "referred-to-as"):
@@ -246,9 +246,77 @@ def build_dangers(records, topics_by_id):
         f"(21-76 ch11 topics; snake species split per-species at Latin-name parens, verbatim; "
         f"21-11 treatment records 9-6/9-7/9-10 + ch11 toxic environment). "
         f"Full text lives in TOPICS under topic_id; DANGERS holds the index.")
+    log(f"  appendix C poisonous-plant species added later via appendix_plant_dangers(): see main DANGERS log line")
     return dangers
 
 # ---------------------------------------------------------------- main
+def load_appendix_records():
+    with open(os.path.join(ROOT, "data", "fm2176_appendices.json"), encoding="utf-8") as f:
+        return json.load(f)["records"]
+
+
+def build_plants():
+    plants = []
+    for r in load_appendix_records():
+        if r["kind"] != "edible-medicinal":
+            continue
+        f = r["fields"]
+        quote = f.get("Description", "")
+        if f.get("Habitat and Distribution"):
+            quote += "\n\nHabitat and Distribution: " + f["Habitat and Distribution"]
+        if f.get("Edible Parts"):
+            quote += "\n\nEdible Parts: " + f["Edible Parts"]
+        if f.get("CAUTION"):
+            quote += "\n\nCAUTION: " + f["CAUTION"]
+        plants.append({
+            "id": "appb-" + r["page"].split("-")[1],
+            "manual": r["manual"],
+            "chapter": None,
+            "chapter_title": None,
+            "section": None,
+            "para": None,
+            "page": r["page"],
+            "lead": r["name"],
+            "name": r["name"],
+            "latin": r.get("latin", ""),
+            "family": r.get("family", ""),
+            "text": quote,
+            "qa_flags": r.get("qa_flags", []),
+        })
+    return plants
+
+
+def appendix_plant_dangers():
+    dangers = []
+    for r in load_appendix_records():
+        if r["kind"] != "poisonous-plant":
+            continue
+        f = r["fields"]
+        quote = f.get("Description", "")
+        if f.get("CAUTION"):
+            quote += "\n\nCAUTION: " + f["CAUTION"]
+        if f.get("Habitat and Distribution"):
+            quote += "\n\nHabitat and Distribution: " + f["Habitat and Distribution"]
+        dangers.append({
+            "id": "appc-" + r["page"].split("-")[1],
+            "manual": r["manual"],
+            "chapter": None,
+            "chapter_title": None,
+            "section": None,
+            "para": None,
+            "page": r["page"],
+            "lead": r["name"],
+            "name": r["name"],
+            "latin": r.get("latin", ""),
+            "family": r.get("family", ""),
+            "kind": "poisonous-plant",
+            "region": f.get("Habitat and Distribution", ""),
+            "text": quote,
+            "qa_flags": r.get("qa_flags", []),
+        })
+    return dangers
+
+
 def write_pack(name, entries, method):
     pack = {
         "pack": name,
@@ -275,12 +343,16 @@ def main():
     topics = build_topics(records)
     procs = build_procedures(records)
     terms = build_terms(records)
-    dangers = build_dangers(records, topics)
+    dangers = build_dangers(records, topics) + appendix_plant_dangers()
+    plants = build_plants()
 
     write_pack("topics", topics, "one entry per source paragraph record; title = lead/section heading, text verbatim")
     write_pack("procedures", procs, "records with >=3 mechanical step markers; steps split at markers, text verbatim")
     write_pack("terms", terms, "definitional sentences via explicit patterns; sentence verbatim, subject-only term extraction")
-    write_pack("dangers", dangers, "index only: species bullets + topic/treatment refs to TOPICS (topic_id)")
+    log(f"PLANTS: {len(plants)} edible/medicinal entries from appendix B (fields quoted verbatim; Latin names kept)")
+    log(f"DANGERS FINAL: {len(dangers)} entries ({sum(1 for e in dangers if e.get('kind')=='poisonous-plant')} appendix-C poisonous-plant species, {sum(1 for e in dangers if e.get('kind')=='species')} snake species, {sum(1 for e in dangers if e.get('kind')=='treatment')} treatments, {sum(1 for e in dangers if e.get('kind')=='topic')} topic refs)")
+    write_pack("dangers", dangers, "index only: species bullets (ch11 + Appendix C poisonous plants with own text) + topic/treatment refs to TOPICS (topic_id)")
+    write_pack("plants", plants, "FM 21-76 Appendix B edible/medicinal plants; Description/Habitat/Edible Parts/CAUTION quoted verbatim")
 
     with open(LOG, "w", encoding="utf-8") as f:
         f.write("\n".join(log_lines) + "\n")
