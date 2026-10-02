@@ -1,0 +1,46 @@
+<body>
+<div id="bootveil" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#000308;color:#e6f7ff;font-family:ui-monospace,'Courier New',monospace;letter-spacing:.14em;text-align:center;transition:opacity .5s ease"><div style="width:44px;height:44px;position:relative"><div style="position:absolute;inset:0;border:1px solid rgba(0,229,255,.4);border-radius:50%;animation:bv 3s linear infinite"></div><div style="position:absolute;inset:9px;border:1px dashed rgba(0,229,255,.4);border-radius:50%;animation:bv 3s linear infinite reverse"></div><div style="position:absolute;inset:15px;border-radius:50%;background:radial-gradient(circle,#00e5ff 0%,rgba(0,229,255,.2) 70%,transparent 100%);box-shadow:0 0 16px #00e5ff"></div></div><div style="font-size:15px">TRU — LOADING CORPUS</div><div style="font-size:11px;color:#5f7d8c">offline • local • no network</div></div>
+<script>(function(){var st=document.createElement("style");st.textContent="@keyframes bv{to{transform:rotate(360deg)}}";document.head.appendChild(st);function rm(){var v=document.getElementById("bootveil");if(!v)return;v.style.opacity="0";setTimeout(function(){if(v.parentNode)v.parentNode.removeChild(v)},600)}if(document.readyState==="complete")rm();else window.addEventListener("load",rm);setTimeout(rm,20000)})()</script>
+<div id="listenHint">● LISTENING</div>
+<div class="header">
+  <div class="holo-mini" id="holo">
+    <div class="ring r3"></div>
+    <div class="ring r2"></div>
+    <div class="ring r1"></div>
+    <div class="core"></div>
+  </div>
+  <div class="title-block">
+    <div class="title">TRU</div>
+    <div class="subtitle" id="sub">offline • local</div>
+  </div>
+  <div class="badge" id="badge">REASON</div>
+  <div class="mode-switch" aria-label="TRU runtime mode">
+    <button type="button" data-tru-mode="offline" onclick="setTruMode('offline')">OFFLINE</button>
+  </div>
+</div>
+<div id="chat"></div>
+<div class="inputbar">
+  <input id="input" placeholder="Speak to me…" autocomplete="off" autocapitalize="sentences">
+  <button id="send" disabled>↑</button>
+</div>
+<div id="status">● BOOTING…</div>
+<div id="runtimeMode">● OFFLINE • NO NETWORK</div><div class="reader-controls" aria-label="Bible reader controls">
+  <div class="reader-main-controls">
+    <button type="button" id="readerStart">READ BIBLE</button>
+    <button type="button" id="readerPause" disabled>PAUSE</button>
+    <button type="button" id="readerStop" disabled>STOP</button>
+    <span id="readerProgress">Reader idle</span>
+    <button type="button" id="redToggle" onclick="toggleRed()" title="Toggle red-letter highlighting">RED ✝</button>
+    <button type="button" id="rainbowToggle" onclick="toggleRainbow()" title="Toggle rainbow reader">RAINBOW</button>
+  </div>
+  <div class="reader-voice-controls" role="group" aria-label="Offline Bible reader voice">
+    <span>VOICE</span>
+    <button type="button" id="readerVoiceFemale" aria-pressed="true" title="Prefer a locally installed feminine-sounding voice">♀ FEMALE</button>
+    <button type="button" id="readerVoiceMale" aria-pressed="false" title="Prefer a locally installed masculine-sounding voice">♂ MALE</button>
+    <select id="readerVoiceSelect" aria-label="Choose a locally installed English voice"><option value="">AUTO</option></select>
+    <button type="button" id="readerVoiceTest">TEST VOICE</button>
+  </div>
+  <div id="readerVoiceStatus" role="status" aria-live="polite">Checking for offline English voices…</div>
+</div>
+<div id="verseStrip" style="display:none;text-align:center;font:10px ui-monospace,monospace;padding:2px 10px 6px;color:#ff5a5a;letter-spacing:.4px"></div>
+

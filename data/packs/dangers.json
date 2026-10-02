@@ -1,0 +1,874 @@
+{
+ "pack": "dangers",
+ "derived_from": [
+  "data/fm2111_1976.json",
+  "data/fm2176_1992.json"
+ ],
+ "method": "index only: species bullets + topic/treatment refs to TOPICS (topic_id)",
+ "count": 63,
+ "entries": [
+  {
+   "id": "a41fe17a3e",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 9,
+   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "section": "",
+   "para": "9-6",
+   "qa_flags": [],
+   "name": "Snake and Spider Bites and Scorpion Stings",
+   "kind": "treatment",
+   "topic_id": "a41fe17a3e"
+  },
+  {
+   "id": "0cc368af00",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 9,
+   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "section": "",
+   "para": "9-7",
+   "qa_flags": [],
+   "name": "Skin Eruptions from Poisonous Plants",
+   "kind": "treatment",
+   "topic_id": "0cc368af00"
+  },
+  {
+   "id": "2fdd52f821",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 9,
+   "chapter_title": "FIRST AID FOR COAAMON EMERGENCIES",
+   "section": "",
+   "para": "9-10",
+   "qa_flags": [
+    "ocr-marker-gap: paras 9-11 to 9-11 heading lost in scan; content absorbed here"
+   ],
+   "name": "Carbon Monoxide (CO) Poisoning",
+   "kind": "treatment",
+   "topic_id": "2fdd52f821"
+  },
+  {
+   "id": "b286834dd5",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-6",
+   "qa_flags": [],
+   "name": "General",
+   "kind": "treatment",
+   "topic_id": "b286834dd5"
+  },
+  {
+   "id": "b73f9bff9d",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-7",
+   "qa_flags": [
+    "ocr-suspect",
+    "ocr-marker-gap: paras 11-8 to 11-8 heading lost in scan; content absorbed here"
+   ],
+   "name": "Symptoms of Nerve Agent Poisoning",
+   "kind": "treatment",
+   "topic_id": "b73f9bff9d"
+  },
+  {
+   "id": "d2b7471e32",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "OTHER AGENTS",
+   "para": "11-9",
+   "qa_flags": [],
+   "name": "Blister Agents",
+   "kind": "treatment",
+   "topic_id": "d2b7471e32"
+  },
+  {
+   "id": "3af50ef310",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-10",
+   "qa_flags": [],
+   "name": "Choking Agents",
+   "kind": "treatment",
+   "topic_id": "3af50ef310"
+  },
+  {
+   "id": "6ac41a6ef9",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-11",
+   "qa_flags": [],
+   "name": "Blood Agents",
+   "kind": "treatment",
+   "topic_id": "6ac41a6ef9"
+  },
+  {
+   "id": "2146e0d7d7",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-12",
+   "qa_flags": [],
+   "name": "Tear Agents (CS or CN)",
+   "kind": "treatment",
+   "topic_id": "2146e0d7d7"
+  },
+  {
+   "id": "abfcd38ee1",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-13",
+   "qa_flags": [],
+   "name": "Vom:ting Agents",
+   "kind": "treatment",
+   "topic_id": "abfcd38ee1"
+  },
+  {
+   "id": "bbd423a0a3",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-14",
+   "qa_flags": [],
+   "name": "Incapacitating Agents",
+   "kind": "treatment",
+   "topic_id": "bbd423a0a3"
+  },
+  {
+   "id": "b82b8740aa",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-15",
+   "qa_flags": [],
+   "name": "Screening Smokes",
+   "kind": "treatment",
+   "topic_id": "b82b8740aa"
+  },
+  {
+   "id": "0a795d4b54",
+   "manual": "FM 21-11 (1976)",
+   "chapter": 11,
+   "chapter_title": "FIRST AID IN A TOXIC ENVIRONMENT",
+   "section": "",
+   "para": "11-16",
+   "qa_flags": [],
+   "name": "Incendiaries",
+   "kind": "treatment",
+   "topic_id": "0a795d4b54"
+  },
+  {
+   "id": "c01baa5c20",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Dangerous Animals",
+   "kind": "topic",
+   "topic_id": "c01baa5c20"
+  },
+  {
+   "id": "4e1240e6f1",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "INSECTS AND ARACHNIDS",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "INSECTS AND ARACHNIDS",
+   "kind": "topic",
+   "topic_id": "4e1240e6f1"
+  },
+  {
+   "id": "34b7b2a543",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Centipedes and Millipedes",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Centipedes and Millipedes",
+   "kind": "topic",
+   "topic_id": "34b7b2a543"
+  },
+  {
+   "id": "2f56df32f1",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Bees, Wasps, and Hornets",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Bees, Wasps, and Hornets",
+   "kind": "topic",
+   "topic_id": "2f56df32f1"
+  },
+  {
+   "id": "af36bf8055",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "LEECHES",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "LEECHES",
+   "kind": "topic",
+   "topic_id": "af36bf8055"
+  },
+  {
+   "id": "2c44ac4f59",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "BATS",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "BATS",
+   "kind": "topic",
+   "topic_id": "2c44ac4f59"
+  },
+  {
+   "id": "14631d68ee",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES",
+   "para": "11-s",
+   "qa_flags": [
+    "non-ascii:8"
+   ],
+   "name": "POISONOUS SNAKES",
+   "kind": "topic",
+   "topic_id": "14631d68ee"
+  },
+  {
+   "id": "6ba5073822",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Snake-Free Areas",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Snake-Free Areas",
+   "kind": "topic",
+   "topic_id": "6ba5073822"
+  },
+  {
+   "id": "136cea4f1c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF THE AMERICAS",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.55",
+    "non-ascii:6"
+   ],
+   "name": "American Copperhead (Agkistrodon contortrix)",
+   "kind": "species",
+   "region": "Americas",
+   "topic_id": "136cea4f1c"
+  },
+  {
+   "id": "136cea4f1c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF THE AMERICAS",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.55",
+    "non-ascii:6"
+   ],
+   "name": "Bushmaster (Lachesis mutus)",
+   "kind": "species",
+   "region": "Americas",
+   "topic_id": "136cea4f1c"
+  },
+  {
+   "id": "136cea4f1c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF THE AMERICAS",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.55",
+    "non-ascii:6"
+   ],
+   "name": "Coral snake (Micrurus fulvius)",
+   "kind": "species",
+   "region": "Americas",
+   "topic_id": "136cea4f1c"
+  },
+  {
+   "id": "136cea4f1c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF THE AMERICAS",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.55",
+    "non-ascii:6"
+   ],
+   "name": "Cottonmouth (Agkistrodon piscivorus)",
+   "kind": "species",
+   "region": "Americas",
+   "topic_id": "136cea4f1c"
+  },
+  {
+   "id": "136cea4f1c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF THE AMERICAS",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.55",
+    "non-ascii:6"
+   ],
+   "name": "Fer-de-lance (Bothrops atrox)",
+   "kind": "species",
+   "region": "Americas",
+   "topic_id": "136cea4f1c"
+  },
+  {
+   "id": "136cea4f1c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF THE AMERICAS",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.55",
+    "non-ascii:6"
+   ],
+   "name": "Rattlesnake (Crotalus species)",
+   "kind": "species",
+   "region": "Americas",
+   "topic_id": "136cea4f1c"
+  },
+  {
+   "id": "466c39617c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF EUROPE",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.50"
+   ],
+   "name": "Common adder (Vipers berus)",
+   "kind": "species",
+   "region": "Europe",
+   "topic_id": "466c39617c"
+  },
+  {
+   "id": "466c39617c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF EUROPE",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.50"
+   ],
+   "name": "Pallas' viper (Agkistrodon halys)",
+   "kind": "species",
+   "region": "Europe",
+   "topic_id": "466c39617c"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Boomslang (Dispholidus typus)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Cobra (Naja species)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Gaboon viper (Bitis gabonica)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Green tree pit viper (Trimeresurus gramineus)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Habu pit viper (Trimeresurus flavoviridis)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Krait (Bungarus caeruleus)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Malayan pit viper (Callaselasma rhodostoma)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Mamba (Dendraspis species)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Puff adder (Bitis arietans)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Rhinoceros viper (Bitis nasicornis)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Russell' s viper (Vipera russellii)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Sand viper (Cerastes vipera)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Saw-scaled viper (Echis carinatus)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "4913fbc675",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AFRICA AND ASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.65",
+    "non-ascii:14"
+   ],
+   "name": "Wagler's pit viper (Trimeresurus wagleri)",
+   "kind": "species",
+   "region": "Africa and Asia",
+   "topic_id": "4913fbc675"
+  },
+  {
+   "id": "1a7dd9d9ac",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AUSTRALASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.56"
+   ],
+   "name": "Death adder (Acanthophis antarcticus)",
+   "kind": "species",
+   "region": "Australasia",
+   "topic_id": "1a7dd9d9ac"
+  },
+  {
+   "id": "1a7dd9d9ac",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AUSTRALASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.56"
+   ],
+   "name": "Taipan (Oxyuranus scutellatus)",
+   "kind": "species",
+   "region": "Australasia",
+   "topic_id": "1a7dd9d9ac"
+  },
+  {
+   "id": "1a7dd9d9ac",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AUSTRALASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.56"
+   ],
+   "name": "Tiger snake (Notechis scutatus)",
+   "kind": "species",
+   "region": "Australasia",
+   "topic_id": "1a7dd9d9ac"
+  },
+  {
+   "id": "1a7dd9d9ac",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "POISONOUS SNAKES OF AUSTRALASIA",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.56"
+   ],
+   "name": "Yellow-bellied sea snake (Pelamis platurus)",
+   "kind": "species",
+   "region": "Australasia",
+   "topic_id": "1a7dd9d9ac"
+  },
+  {
+   "id": "de94f884ae",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "DANGEROUS LIZARDS",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "DANGEROUS LIZARDS",
+   "kind": "topic",
+   "topic_id": "de94f884ae"
+  },
+  {
+   "id": "2ac962f813",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Gila Monster",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Gila Monster",
+   "kind": "topic",
+   "topic_id": "2ac962f813"
+  },
+  {
+   "id": "3312fc9e19",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Mexican Beaded Lizard",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Mexican Beaded Lizard",
+   "kind": "topic",
+   "topic_id": "3312fc9e19"
+  },
+  {
+   "id": "0d01daf4b0",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Komodo Dragon",
+   "para": "11-s",
+   "qa_flags": [
+    "ocr-garble:0.15"
+   ],
+   "name": "Komodo Dragon",
+   "kind": "topic",
+   "topic_id": "0d01daf4b0"
+  },
+  {
+   "id": "00e57fa69c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "DANGERS IN RIVERS",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "DANGERS IN RIVERS",
+   "kind": "topic",
+   "topic_id": "00e57fa69c"
+  },
+  {
+   "id": "4990c0d60c",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Electric Eel",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Electric Eel",
+   "kind": "topic",
+   "topic_id": "4990c0d60c"
+  },
+  {
+   "id": "b47d8aca86",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "DANGERS IN BAYS AND ESTUARIES",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "DANGERS IN BAYS AND ESTUARIES",
+   "kind": "topic",
+   "topic_id": "b47d8aca86"
+  },
+  {
+   "id": "ff3c4e5fb1",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "SALTWATER DANGERS",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "SALTWATER DANGERS",
+   "kind": "topic",
+   "topic_id": "ff3c4e5fb1"
+  },
+  {
+   "id": "f120ef6a38",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Fish Dangerous to Handle, Touch, or Contact",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Fish Dangerous to Handle, Touch, or Contact",
+   "kind": "topic",
+   "topic_id": "f120ef6a38"
+  },
+  {
+   "id": "ffb9bcb079",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Scorpion Fish",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Scorpion Fish",
+   "kind": "topic",
+   "topic_id": "ffb9bcb079"
+  },
+  {
+   "id": "aaae1e624e",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Weever Fish",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Weever Fish",
+   "kind": "topic",
+   "topic_id": "aaae1e624e"
+  },
+  {
+   "id": "3f5c76c260",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Animals and Fish Poisonous to Eat",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Animals and Fish Poisonous to Eat",
+   "kind": "topic",
+   "topic_id": "3f5c76c260"
+  },
+  {
+   "id": "ea7f67e5d8",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Other Dangerous Sea Creatures",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Other Dangerous Sea Creatures",
+   "kind": "topic",
+   "topic_id": "ea7f67e5d8"
+  },
+  {
+   "id": "f30b5d8aff",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Blue-Ringed Octopus",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Blue-Ringed Octopus",
+   "kind": "topic",
+   "topic_id": "f30b5d8aff"
+  },
+  {
+   "id": "002cdb3e2a",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Cone Shell",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Cone Shell",
+   "kind": "topic",
+   "topic_id": "002cdb3e2a"
+  },
+  {
+   "id": "9286fc68b3",
+   "manual": "FM 21-76 (1992 dump, 233pp)",
+   "chapter": 11,
+   "chapter_title": "DANGEROUS ANIMALS",
+   "section": "Auger Shell",
+   "para": "11-s",
+   "qa_flags": [],
+   "name": "Auger Shell",
+   "kind": "topic",
+   "topic_id": "9286fc68b3"
+  }
+ ]
+}
