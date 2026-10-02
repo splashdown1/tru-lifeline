@@ -19,6 +19,7 @@ engine is built — they are sweep requirements for P3/P4, not claims.
 2. CALC         pure arithmetic only — never medical numbers
 3. DEFINE       definitional phrasing → TERM sentence match
 4. DANGER       exact key match on the DANGERS index
+4b. PLANT       appendix B/C species match (name + Latin); topic-owning titles stay with TOPIC
 5. PROCEDURE    exact procedure-title match; "how to" phrasing
 6. TOPIC        exact TOPICS title match
 7. TOPIC-FUZZY  gated fuzzy over TOPICS titles

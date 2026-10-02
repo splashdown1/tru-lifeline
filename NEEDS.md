@@ -46,6 +46,7 @@ SNAKES), DEFINE single-typo tolerance ("tournaquet" → tourniquet, honest match
 **Accept.** Live URL byte-identical: DONE. joe passes the gate: DONE.
 
 ## P5 — Later (parked)
+- **P5a DONE (2026-10-02, v2.0):** plant appendices extracted + PLANT lane shipped (111 edible/medicinal + 17 poisonous, verbatim fields, page-level provenance); release of record sha `ff5e8e9d906893a0…`, live byte-verified.
 - Corpus expansion: FM 4-25.11 (2002), USDA plant data, Boy Scout 1911 knots/shelter.
 - Size budget: TRU.html is 35MB; LIFELINE corpus is tiny (~1MB text) — target <2MB single file.
 - Multi-language: not now. English sources only; honest about that.
